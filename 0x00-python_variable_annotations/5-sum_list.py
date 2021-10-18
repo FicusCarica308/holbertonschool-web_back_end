@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from typing import List
 """
 [summary]
 Contains a single python function definition this time using
 complex type annotations (inpits List from typing for subscriptable List class)
 """
+from typing import List
 
 
 def sum_list(input_list: List[float]) -> float:
