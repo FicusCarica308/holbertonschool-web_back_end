@@ -5,7 +5,8 @@ Contains a single python function definition using Basic python
 annotations
 """
 
-def floor(n:float) -> int:
+
+def floor(n: float) -> int:
     """
     [summary]
     A type-annotated function floor which takes a float n as argument
