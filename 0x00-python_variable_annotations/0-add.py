@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
-    """Contains a single python function definition using Basic python annotations
-    """
+"""
+[summary]
+Contains a single python function definition using Basic python
+annotations
+"""
 
-def add (a: float, b: float):
+
+def add(a: float, b: float):
     """
-    Takes a float a and a float b as arguments and returns their sum as a float (type-annotated)
+    [summary]
+    Takes a float a and a float b as arguments and returns their sum as a float
+    (type-annotated)
     Args:
         a (float): number to be added
         b (float): number to be added
