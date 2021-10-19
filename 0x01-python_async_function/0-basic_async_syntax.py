@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """[summary]
+    temporary summary
 """
-
-
 import asyncio
 import typing
 from random import uniform
 
 
-async def wait_random(max_delay: int = 10):
+async def wait_random(max_delay: int = 10) -> float:
     """[summary]
 
     Args:
