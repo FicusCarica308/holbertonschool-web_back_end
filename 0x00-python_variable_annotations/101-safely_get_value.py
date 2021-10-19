@@ -2,10 +2,11 @@
 """[summary]
 """
 from typing import Union, Mapping, Any, TypeVar
-
-
 val = TypeVar('T')
-def safely_get_value(dct: Mapping, key: Any, default: Union[val, None]) -> Union[Any, val]:
+
+
+def safely_get_value(dct: Mapping, key: Any,
+                     default: Union[val, None]) -> Union[Any, val]:
     """[summary]
 
     Args:
