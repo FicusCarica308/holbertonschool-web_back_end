@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
+"""[summary]
+"""
 from typing import Tuple, List, Any, Union
 
+
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """[summary]
+
+    Args:
+        lst (Tuple): [description]
+        factor (int, optional): [description]. Defaults to 2.
+
+    Returns:
+        List: [description]
+    """
     factor = int(factor)
     zoomed_in: List = [
         item for item in lst
