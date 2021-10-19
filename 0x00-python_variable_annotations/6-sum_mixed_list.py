@@ -5,10 +5,10 @@ Contains a single python function definition this time using
 complex type annotations (inputs Union from typing for subscriptable
 List class and int | float typing)
 """
-from typing import Union
+from typing import Union, List
 
 
-def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """[summary]
 
     Args:
