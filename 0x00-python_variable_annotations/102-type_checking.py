@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """[summary]
 """
-from typing import Tuple, List, Any, Union
+from typing import Tuple, List
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
