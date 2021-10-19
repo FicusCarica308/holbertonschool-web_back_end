@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """[summary]
 """
-
-
 from typing import Iterable, Tuple, Sequence, List
+
 
 def element_length(lst: Iterable[Sequence]) -> List[Tuple[Sequence, int]]:
     """[summary]
