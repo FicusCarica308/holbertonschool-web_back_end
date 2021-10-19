@@ -7,6 +7,7 @@ List class and int | float typing)
 """
 from typing import Union
 
+
 def sum_mixed_list(mxd_lst: Union[int, float]) -> float:
     """[summary]
 
