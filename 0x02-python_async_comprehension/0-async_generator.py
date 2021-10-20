@@ -5,6 +5,7 @@ import asyncio
 from random import uniform
 from typing import Generator
 
+
 async def async_generator() -> Generator[int, None, None]:
     """[summary]
 
