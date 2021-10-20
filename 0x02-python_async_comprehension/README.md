@@ -15,7 +15,7 @@
 * 2-measure_runtime.py -      will execute async_comprehension four times in parallel using asyncio.gather, then return the total execution time
 
 ## Authors
-Manuel Enrique Figueroa - [Github](https://github.com/FicusCarica308)
+Manuel Enrique Figueroa - [Github](https://github.com/FicusCarica308), [LinkedIn](https://www.linkedin.com/in/manuel-figueroa-292216215)
 
 ## License
 Public Domain. No copy write protection.
