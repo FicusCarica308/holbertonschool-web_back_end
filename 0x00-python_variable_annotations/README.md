@@ -1,5 +1,5 @@
+![Python Logo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpluralsight.imgix.net%2Fpaths%2Fpython-7be70baaac.png&f=1&nofb=1)
 # 0x00. Python - Variable Annotations
-![Holberton Logo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.holbertonschool.com%2Fholberton-logo-simple.png&f=1&nofb=1)
 
 
 ## Learning objectives: 
@@ -24,7 +24,7 @@
 * 9-element_length.py - practice annotation with given function
 
 ## Authors
-Manuel Enrique Figueroa - [Github](https://github.com/FicusCarica308)
+Manuel Enrique Figueroa - [Github](https://github.com/FicusCarica308), [LinkedIn](https://www.linkedin.com/in/manuel-figueroa-292216215)
 
 ## License
 Public Domain. No copy write protection.
