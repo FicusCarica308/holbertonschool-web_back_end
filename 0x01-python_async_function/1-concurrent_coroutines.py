@@ -9,10 +9,8 @@ wait_random = __import__('0-basic_async_syntax').wait_random
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """[summary]
-    Imports wait_random from the previous python file then uses an async
-    routine called wait_n that takes in 2 int arguments (in this order): n
-    and max_delay. You will spawn wait_random n times with the specified
-    max_delay.
+    Imports wait_random then uses an async routine called wait_n. 
+    Spawns wait_random n times withthe specifiedmax_delay.
 
     Args:
         n (int): How many times the async function will be called
