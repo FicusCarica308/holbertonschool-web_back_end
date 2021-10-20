@@ -1,5 +1,5 @@
-# 0x02. Python - Async Comprehension
 ![Python Logo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpluralsight.imgix.net%2Fpaths%2Fpython-7be70baaac.png&f=1&nofb=1)
+# 0x02. Python - Async Comprehension
 
 
 ## Learning objectives: 
