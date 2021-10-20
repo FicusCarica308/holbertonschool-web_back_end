@@ -12,9 +12,8 @@ from random import uniform
 async def wait_random(max_delay: int = 10) -> float:
     """
     [summary]
-     An asynchronous coroutine named wait_random that takes in an integer
-     argument called max_delay, with a default value of 10. Waits for a random
-     delay between 0 and max_delay (included and float value) seconds and
+     An asynchronous coroutine named wait_random. Waits for a random
+     delay between 0 and 10 max_delay in seconds and
      eventually returns it.
 
     Args:
