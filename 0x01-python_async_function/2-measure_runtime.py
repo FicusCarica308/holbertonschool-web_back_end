@@ -8,14 +8,16 @@ wait_n = __import__('1-concurrent_coroutines').wait_n
 
 
 def measure_time(n: int, max_delay: int) -> float:
-    """[summary]
-
+    """
+    A measure_time function with integers n and max_delay as arguments that
+    measures the total execution time for wait_n(n, max_delay), and returns
+    total_time / n. Your function should return a float.
     Args:
-        n (int): [description]
-        max_delay (int): [description]
+        n (int): How many times the async function will be called
+        max_delay (int): The max sleep time for each function call
 
     Returns:
-        float: [description]
+        float: the total execution time of the entire program
     """
     start = time.time()
     asyncio.run(wait_n(n, max_delay))
