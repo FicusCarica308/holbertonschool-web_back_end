@@ -6,11 +6,11 @@ from random import uniform
 from typing import Generator
 
 
-async def async_generator() -> Generator[int, None, None]:
+async def async_generator() -> Generator[float, None, None]:
     """[summary]
 
     Yields:
-        Generator[int, None, None]: [description]
+        Generator[float, None, None]: [description]
     """
     for i in range(10):
         yield uniform(0, 10)
