@@ -20,4 +20,4 @@ def measure_time(n: int, max_delay: int) -> float:
     start = time.time()
     asyncio.run(wait_n(n, max_delay))
     end = time.time()
-    return ((start + end) / n)
+    return ((end - start) / n)
