@@ -1,4 +1,4 @@
-![Python Logo](https://intranet.hbtn.io/assets/holberton-logo-full-black-157ccfa3d2134776c1e3f78c0fe682968e8848b64fcacc6187976044f75f35a8.png)
+![Holberton](https://www.trinityventures.com/uploads/images/portfolio/_270xAUTO_crop_center-center/Holberton-3.png)
 # holbertonschool-web_back_end :back:
 In this repository is all of my back-end practice projects for the holberton school curriculem.
 
