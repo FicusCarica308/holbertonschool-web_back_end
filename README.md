@@ -4,7 +4,7 @@ In this repository is all of my back-end practice projects for the holberton sch
 
 # Contents:
 * This repository contains directorys named after given projects assigned by the holbertonschool curriculum.
-* Each directory contains project tasks based on back-end web development
+* Each section contains directories with tasks based around back-end web development
 1. ![Advanced Python Directories](https://github.com/FicusCarica308/holbertonschool-web_back_end#advanced-python-directories)
 
 ## Advanced Python Directories:
