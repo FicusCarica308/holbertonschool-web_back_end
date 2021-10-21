@@ -1,4 +1,4 @@
-![Python Logo](https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Image.png)
+![Python Logo](https://logos-download.com/wp-content/uploads/2016/10/Python_logo_icon.png)
 # 0x00. Python - Variable Annotations
 
 
