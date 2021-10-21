@@ -1,4 +1,4 @@
-![Python Logo](https://www.apemockups.com/wp-content/uploads/edd/2017/10/python-logo.png)
+![Python Logo](https://pluspng.com/img-png/python-logo-png-free-python-logo-transparent-img-free-clip-art-free-clip-900x540.jpg)
 # 0x00. Python - Variable Annotations
 
 
