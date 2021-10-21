@@ -7,8 +7,7 @@ In this repository is all of my back-end practice projects for the holberton sch
 * Each directory contains project tasks based on back-end web development
 * Each directory is seperated by topic below :arrow_down:
 
-## Advanced Python Directories:
-![Python Logo](https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Image.png)
+## Advanced Python Directories: ![Python Logo](https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Image.png)
 * ![0x00-python_variable_annotations](https://github.com/FicusCarica308/holbertonschool-web_back_end/tree/main/0x00-python_variable_annotations) - Covering Python3  Type annotations (includes some examples using typing library).
 * ![0x01-python_async_function](https://github.com/FicusCarica308/holbertonschool-web_back_end/tree/main/0x01-python_async_function) - Covering Python3  Async Coroutines using Python 3's asyncio library.
 * ![0x02-python_async_comprehension](https://github.com/FicusCarica308/holbertonschool-web_back_end/tree/main/0x02-python_async_comprehension) - Covering Python3 Async Comprehension and Generators.
