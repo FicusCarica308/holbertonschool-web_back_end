@@ -1,4 +1,4 @@
-![Python Logo](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpluralsight.imgix.net%2Fpaths%2Fpython-7be70baaac.png&f=1&nofb=1)
+![Python Logo](https://www.pngall.com/wp-content/uploads/2016/05/Python-Logo-PNG-Image.png)
 # 0x00. Python - Variable Annotations
 
 
