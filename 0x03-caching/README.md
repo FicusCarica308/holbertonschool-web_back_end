@@ -2,14 +2,14 @@
 # 0x03. Caching
 
 ## Learning objectives: 
-* What a caching system is
-* What FIFO means
-* What LIFO means
-* What LRU means
-* What MRU means
-* What LFU means
-* What the purpose of a caching system
-* What limits a caching system have
+* Caching system definition
+* FIFO definition and concept
+* LIFO definition and concept
+* LRU definition and concept
+* MRU definition and concept
+* LFU definition and concept
+* Purpose of a caching system
+* The limits a caching system
 
 
 ## Tasks:
