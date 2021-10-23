@@ -12,6 +12,8 @@ class FIFOCache(BaseCaching):
     """
     
     def __init__(self):
+        """[summary]
+        """
         super().__init__()
 
     # overwrite of put function from BaseCaching
