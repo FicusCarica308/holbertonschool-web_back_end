@@ -22,6 +22,9 @@ class LRUCache(BaseCaching):
             key ([type]): [description]
             item ([type]): [description]
         """
+        if (key is None or item is None):
+            return
+
         if (key in self.cache_data):
             self.get(key)  # moves existing node to front
             self.cache_data[key] = item
