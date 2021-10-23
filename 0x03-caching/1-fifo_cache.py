@@ -10,7 +10,7 @@ class FIFOCache(BaseCaching):
     Args:
         BaseCaching ([type]): [description]
     """
-    
+
     def __init__(self):
         """[summary]
         """

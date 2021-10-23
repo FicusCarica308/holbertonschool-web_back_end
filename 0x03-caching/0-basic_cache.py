@@ -9,7 +9,7 @@ from base_caching import BaseCaching
 class BasicCache(BaseCaching):
     """[summary]
     """
-    
+
     def put(self, key, item):
         """[summary]
 

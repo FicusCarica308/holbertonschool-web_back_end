@@ -6,7 +6,6 @@ BaseCaching = __import__('0-basic_cache').BaseCaching
 
 class LIFOCache(BaseCaching):
     """[summary]
-
     Args:
         BaseCaching ([type]): [description]
     """
@@ -19,7 +18,6 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         """[summary]
-
         Args:
             key ([type]): [description]
             item ([type]): [description]
