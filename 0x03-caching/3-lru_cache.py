@@ -23,10 +23,10 @@ class LRUCache(BaseCaching):
             item ([type]): [description]
         """
         if (key in self.cache_data):
-            self.get(key) # moves existing node to front
+            self.get(key)  # moves existing node to front
             self.cache_data[key] = item
             return
-            
+
         add = {key: item}
         add.update(self.cache_data)
         self.cache_data = add
