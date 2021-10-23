@@ -3,6 +3,7 @@
 """
 BaseCaching = __import__('0-basic_cache').BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """[summary]
 
@@ -10,6 +11,9 @@ class FIFOCache(BaseCaching):
         BaseCaching ([type]): [description]
     """
     
+    def __init__(self):
+        super().__init__()
+
     # overwrite of put function from BaseCaching
     def put(self, key, item):
         """[summary]
@@ -20,7 +24,10 @@ class FIFOCache(BaseCaching):
         """
         if (key is None or item is None):
             return
-        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS and key not in self.cache_data):
+        if (key in self.cache_data):
+            self.cache_data[key] = item
+            return
+        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
             oldest_key = list(self.cache_data.keys())[0]
             print("DISCARD: {0}".format(oldest_key))
             self.cache_data.pop(oldest_key)
