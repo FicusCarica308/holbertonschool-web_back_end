@@ -28,7 +28,7 @@ class LFUCache(BaseCaching):
         for key in self.__cache_data_usage:
             if LFU_val == self.__cache_data_usage[key]:
                 return None
-            if LFU_val > self.__cache_data_usage[key]:
+            if LFU_val >= self.__cache_data_usage[key]:
                 LFU_val = self.__cache_data_usage[key]
                 LFU_key = key
         return LFU_key
@@ -44,15 +44,15 @@ class LFUCache(BaseCaching):
             return
 
         if (key in self.cache_data):
-            self.get(key)  # moves existing node to front
+            self.get(key)  # moves existing node to front/ changes cache usage
             self.cache_data[key] = item
-            self.__cache_data_usage[key] += 1
             return
 
         add = {key: item}
         add.update(self.cache_data)
         self.cache_data = add
-        self.__cache_data_usage[key] = 1
+        if (key not in self.__cache_data_usage):
+            self.__cache_data_usage[key] = 1
         if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
             LFU = self.get_LFU()
             if (LFU is not None):
@@ -80,5 +80,7 @@ class LFUCache(BaseCaching):
         return self.cache_data[key]
 
     def getter(self):
-        """[summary]"""
+        """
+        [summary]
+        """
         print(self.__cache_data_usage)
