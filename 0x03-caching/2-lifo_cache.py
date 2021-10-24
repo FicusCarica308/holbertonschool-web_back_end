@@ -36,3 +36,13 @@ class LIFOCache(BaseCaching):
 
         self.cache_data[key] = item
         self.__last_key_in = key
+
+    def get(self, key):
+        """[summary]
+
+        Args:
+            key ([type]): [description]
+        """
+        if (key is None or key not in self.cache_data):
+            return None
+        return self.cache_data[key]
