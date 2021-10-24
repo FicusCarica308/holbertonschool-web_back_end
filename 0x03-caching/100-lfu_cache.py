@@ -21,14 +21,15 @@ class LFUCache(BaseCaching):
         Returns:
             [type]: [description]
         """
-        LFU_val = 0
+        LFU_val = min(self.__cache_data_usage.values())
         LFU_key = None
-        for key in self.__cache_data_usage:
-            if LFU_val == self.__cache_data_usage[key]:
-                return None
-            if LFU_val >= self.__cache_data_usage[key]:
-                LFU_val = self.__cache_data_usage[key]
+        LFU_count = 0
+        for key in self.__cache_data_usage.keys():
+            if self.__cache_data_usage[key] == LFU_val:
                 LFU_key = key
+                LFU_count += 1
+        if (LFU_count > 1):
+            return None
         return LFU_key
 
     def put(self, key, item):
@@ -44,13 +45,9 @@ class LFUCache(BaseCaching):
             self.get(key)  # moves existing node to front/ changes cache usage
             self.cache_data[key] = item
             return
-
-        add = {key: item}
-        add.update(self.cache_data)
-        self.cache_data = add
-        if (key not in self.__cache_data_usage):
-            self.__cache_data_usage[key] = 1
-        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
+        
+        
+        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
             LFU = self.get_LFU()
             if (LFU is not None):
                 self.cache_data.pop(LFU)
@@ -60,6 +57,12 @@ class LFUCache(BaseCaching):
                 print("DISCARD: {0}".format(list(self.cache_data.keys())[-1]))
                 self.__cache_data_usage.pop(list(self.cache_data.keys())[-1])
                 self.cache_data.popitem()
+
+        add = {key: item}
+        add.update(self.cache_data)
+        self.cache_data = add
+        if (key not in self.__cache_data_usage):
+            self.__cache_data_usage[key] = 1
 
     def get(self, key):
         """[summary]
