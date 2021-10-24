@@ -11,11 +11,12 @@ class LFUCache(BaseCaching):
         BaseCaching ([type]): [description]
     """
     __cache_data_usage = {}
+
     def __init__(self):
         """[summary]
         """
         super().__init__()
-    
+
     def get_LFU(self):
         """[summary]
 
@@ -54,7 +55,7 @@ class LFUCache(BaseCaching):
         self.__cache_data_usage[key] = 1
         if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
             LFU = self.get_LFU()
-            if (LFU != None):
+            if (LFU is not None):
                 self.cache_data.pop(LFU)
                 self.__cache_data_usage.pop(LFU)
                 print("DISCARD: {0}".format(LFU))
