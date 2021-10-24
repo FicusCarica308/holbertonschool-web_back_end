@@ -17,6 +17,11 @@ class LFUCache(BaseCaching):
         super().__init__()
     
     def get_LFU(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
         LFU_val = 0
         LFU_key = None
         for key in self.__cache_data_usage:
@@ -74,4 +79,5 @@ class LFUCache(BaseCaching):
         return self.cache_data[key]
 
     def getter(self):
+        """[summary]"""
         print(self.__cache_data_usage)
