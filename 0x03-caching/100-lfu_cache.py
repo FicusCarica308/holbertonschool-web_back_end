@@ -45,8 +45,7 @@ class LFUCache(BaseCaching):
             self.get(key)  # moves existing node to front/ changes cache usage
             self.cache_data[key] = item
             return
-        
-        
+
         if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
             LFU = self.get_LFU()
             if (LFU is not None):
