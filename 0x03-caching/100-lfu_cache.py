@@ -6,7 +6,6 @@ BaseCaching = __import__('0-basic_cache').BaseCaching
 
 class LFUCache(BaseCaching):
     """[summary]
-
     Args:
         BaseCaching ([type]): [description]
     """
@@ -19,29 +18,21 @@ class LFUCache(BaseCaching):
 
     def get_LFU(self):
         """[summary]
-
         Returns:
             [type]: [description]
         """
         LFU_val = 0
         LFU_key = None
-        LFU_count = 0
         for key in self.__cache_data_usage:
-            if LFU_val > self.__cache_data_usage[key]:
+            if LFU_val == self.__cache_data_usage[key]:
+                return None
+            if LFU_val >= self.__cache_data_usage[key]:
                 LFU_val = self.__cache_data_usage[key]
                 LFU_key = key
-        for value in self.__cache_data_usage.values():
-            if LFU_val == value:
-                LFU_count += 1
-        
-        if LFU_count > 1:
-            return None
-                
         return LFU_key
 
     def put(self, key, item):
         """[summary]
-
         Args:
             key ([type]): [description]
             item ([type]): [description]
@@ -59,7 +50,7 @@ class LFUCache(BaseCaching):
         self.cache_data = add
         if (key not in self.__cache_data_usage):
             self.__cache_data_usage[key] = 1
-        if (len(self.cache_data) >= BaseCaching.MAX_ITEMS):
+        if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
             LFU = self.get_LFU()
             if (LFU is not None):
                 self.cache_data.pop(LFU)
@@ -72,7 +63,6 @@ class LFUCache(BaseCaching):
 
     def get(self, key):
         """[summary]
-
         Args:
             key ([type]): [description]
         """
