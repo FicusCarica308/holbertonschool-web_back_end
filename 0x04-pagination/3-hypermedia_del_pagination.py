@@ -51,9 +51,13 @@ class Server:
         """
         self.indexed_dataset()
         assert index <= len(self.__indexed_dataset)
-        pairs = {"index": index, "data": [], "page_size": page_size, "next_index": index + page_size}
+        pairs = {"index": index, "data": [],
+                 "page_size": page_size,
+                 "next_index": index + page_size}
         try:
-            pairs["data"].append([self.__indexed_dataset[index], self.__indexed_dataset[index + 1]])
+            pairs["data"].append([self.__indexed_dataset[index],
+                                  self.__indexed_dataset[index + 1]])
         except KeyError:
-            pairs["data"].append([self.__indexed_dataset[index + 1], self.__indexed_dataset[index + 2]])
+            pairs["data"].append([self.__indexed_dataset[index + 1],
+                                  self.__indexed_dataset[index + 2]])
         return pairs
