@@ -59,8 +59,8 @@ class Server:
         while keyError is not False:
             test = index + skip_ammount
             try:
-                pairs["data"].append([self.__indexed_dataset[test],
-                                     self.__indexed_dataset[test + 1]])
+                pairs["data"].extend((self.__indexed_dataset[test],
+                                     self.__indexed_dataset[test + 1]))
                 keyError = False
             except KeyError:
                 skip_ammount += 1
