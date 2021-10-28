@@ -49,15 +49,19 @@ class Server:
         Returns:
             Dict: [description]
         """
+        keyError = True
+        skip_ammount = 0
         self.indexed_dataset()
         assert index <= len(self.__indexed_dataset)
         pairs = {"index": index, "data": [],
                  "page_size": page_size,
                  "next_index": index + page_size}
-        try:
-            pairs["data"].append([self.__indexed_dataset[index],
-                                  self.__indexed_dataset[index + 1]])
-        except KeyError:
-            pairs["data"].append([self.__indexed_dataset[index + 1],
-                                  self.__indexed_dataset[index + 2]])
+        while keyError is not False:
+            test = index + skip_ammount
+            try:
+                pairs["data"].append([self.__indexed_dataset[test],
+                                     self.__indexed_dataset[test + 1]])
+                keyError = False
+            except KeyError:
+                skip_ammount += 1
         return pairs
