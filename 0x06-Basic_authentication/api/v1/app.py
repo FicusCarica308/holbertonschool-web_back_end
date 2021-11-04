@@ -30,9 +30,9 @@ def unauthorized_user(error) -> str:
 
 
 @app.errorhandler(403)
-def unauthorized_user(error) -> str:
+def auth_user_forbidden(error) -> str:
     """ Error handler for authorized user that doesnt
-        have access to a specified resource
+        have access to a forbidden resource
     """
     return jsonify({"error": "Forbidden"}), 401
 
