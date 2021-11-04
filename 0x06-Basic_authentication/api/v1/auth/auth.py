@@ -6,17 +6,12 @@ from typing import List, TypeVar
 
 
 class Auth():
-    """[summary]
+    """
+        [Summary]
     """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """[summary]
-
-        Args:
-            path (str): [description]
-            excluded_paths (List[str]): [description]
-
-        Returns:
-            bool: [description]
+        """
+            Determines if a given path is forbidden/unauthorized to a client
         """
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
             return True
@@ -26,24 +21,22 @@ class Auth():
         return True
 
     def authorization_header(self, request=None) -> str:
-        """[summary]
-
-        Args:
-            request ([type], optional): [description]. Defaults to None.
-
-        Returns:
-            str: [description]
+        """
+            Finds out if the Authorization header argument
+            is included in an http header
+            
+            request object from the flask module is passed
+            (contains all http headers from client)
         """
         if request is None:
             return None
         if request.headers.get('Authorization') is None:
+            print(request.headers)
             return None
         return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """[summary]
-
-        Returns:
-            [type]: [description]
+        """
+            Returns None
         """
         return None
