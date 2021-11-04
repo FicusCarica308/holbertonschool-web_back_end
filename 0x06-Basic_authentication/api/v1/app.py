@@ -15,13 +15,16 @@ CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 # Authentication portion of code ==============================
 auth = None
-excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+excluded_paths = ['/api/v1/status/',
+                  '/api/v1/unauthorized/',
+                  '/api/v1/forbidden/']
 
 auth_type = os.environ.get('AUTH_TYPE')
 
 if auth_type == 'auth':
     from api.v1.auth.auth import Auth
     auth = Auth()
+
 
 @app.before_request
 def before_request_handler():
@@ -37,6 +40,7 @@ def before_request_handler():
         abort(403)
     print("before_request is running!")
 # Authentication portion of code ================================
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
