@@ -38,7 +38,7 @@ def unauth() -> str:
 @app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
 def auth_no_access() -> str:
     """
-        Test endpoint for authorized user with no resource access. 
+        Test endpoint for authorized user with no resource access.
         Will raise a 403 error to test 403 handler in ../app.py
     """
     abort(403)

@@ -34,7 +34,7 @@ def auth_user_forbidden(error) -> str:
     """ Error handler for authorized user that doesnt
         have access to a forbidden resource
     """
-    return jsonify({"error": "Forbidden"}), 401
+    return jsonify({"error": "Forbidden"}), 403
 
 
 if __name__ == "__main__":
