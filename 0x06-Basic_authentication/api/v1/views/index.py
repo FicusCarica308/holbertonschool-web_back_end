@@ -27,9 +27,18 @@ def stats() -> str:
 
 
 @app_views.route('/unauthorized', methods=['GET'], strict_slashes=False)
-def auth() -> str:
+def unauth() -> str:
     """
         Test endpoint for unauthorized user. Will raise a 401
-        error to test handler in ../app.py
+        error to test 401 handler in ../app.py
     """
     abort(401)
+
+
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+def auth_no_access() -> str:
+    """
+        Test endpoint for authorized user with no resource access. 
+        Will raise a 403 error to test 403 handler in ../app.py
+    """
+    abort(403)
