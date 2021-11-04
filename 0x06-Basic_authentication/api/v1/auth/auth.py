@@ -24,7 +24,7 @@ class Auth():
         """
             Finds out if the Authorization header argument
             is included in an http header
-            
+
             request object from the flask module is passed
             (contains all http headers from client)
         """

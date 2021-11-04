@@ -22,7 +22,7 @@ auth_type = os.environ.get('AUTH_TYPE')
 if auth_type == 'auth':
     from api.v1.auth.auth import Auth
     auth = Auth()
-    
+
 @app.before_request
 def before_request_handler():
     """[summary]
