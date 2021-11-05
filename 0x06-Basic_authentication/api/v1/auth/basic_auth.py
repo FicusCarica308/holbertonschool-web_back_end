@@ -55,4 +55,3 @@ class BasicAuth(Auth):
             return None, None
         user_and_pass = decoded_base64_authorization_header.split(':')
         return user_and_pass[0], user_and_pass[1]
-
