@@ -6,7 +6,7 @@ import re
 
 
 def filter_datum(fields: List[str], redaction: str, message: str,
-                 separator: str):
+                 separator: str) -> str:
     """[summary]"""
     for field in fields:
         pattern = "{0}=(.*?){1}".format(field, separator)
