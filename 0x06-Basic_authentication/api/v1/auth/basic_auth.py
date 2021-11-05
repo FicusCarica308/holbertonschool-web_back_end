@@ -81,7 +81,7 @@ class BasicAuth(Auth):
             else:
                 break
         return object
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         """
         uses all class methods to find the current user we are
@@ -90,13 +90,17 @@ class BasicAuth(Auth):
         auth_header = self.authorization_header(request)
         if auth_header is None:
             return None
-        extracted_base64 = self.extract_base64_authorization_header(auth_header)
+        extracted_base64 = self.extract_base64_authorization_header(
+            auth_header)
         if extracted_base64 is None:
             return None
-        decoded_base64 = self.decode_base64_authorization_header(extracted_base64)
+        decoded_base64 = self.decode_base64_authorization_header(
+            extracted_base64)
         if decoded_base64 is None:
             return None
-        extracted_creds = self.extract_user_credentials(decoded_base64)
+        extracted_creds = self.extract_user_credentials(
+            decoded_base64)
         if extracted_creds is None:
             return None
-        return self.user_object_from_credentials(extracted_creds[0], extracted_creds[1])
+        return self.user_object_from_credentials(extracted_creds[0],
+                                                 extracted_creds[1])
