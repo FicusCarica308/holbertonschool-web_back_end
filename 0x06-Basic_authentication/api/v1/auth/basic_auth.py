@@ -22,7 +22,7 @@ class BasicAuth(Auth):
         if key_pair[0] != 'Basic':
             return None
         return key_pair[1]
-    
+
     def decode_base64_authorization_header(self,
                                            base64_authorization_header: str
                                            ) -> str:
@@ -30,7 +30,7 @@ class BasicAuth(Auth):
             Decodes a given base64 encoded string into a utf-8
             string
         """
-        
+
         if base64_authorization_header is None:
             return None
         if type(base64_authorization_header) is not str:
