@@ -20,7 +20,7 @@ class Auth():
             return False
         for current_path in excluded_paths:
             if '*' in current_path:
-                if (current_path.find(path, 1) > 0):
+                if path in current_path:
                     return False
         return True
 
