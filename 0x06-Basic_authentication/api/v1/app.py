@@ -39,9 +39,8 @@ def before_request_handler():
         return
     if auth.authorization_header(request) is None:
         abort(401)
-    if auth.current_user() is None:
+    if auth.current_user(request) is None:
         abort(403)
-    print("before_request is running!")
 # Authentication portion of code ================================
 
 
