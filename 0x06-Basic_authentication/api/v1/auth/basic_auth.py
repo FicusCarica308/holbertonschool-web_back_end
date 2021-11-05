@@ -19,7 +19,6 @@ class BasicAuth(Auth):
         if type(authorization_header) is not str:
             return None
         key_pair = authorization_header.split(' ')
-        print(key_pair)
         if key_pair[0] != 'Basic':
             return None
         return key_pair[1]
