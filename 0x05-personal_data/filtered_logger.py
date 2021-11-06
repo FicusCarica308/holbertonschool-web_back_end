@@ -11,7 +11,7 @@ PII_FIELDS = ("phone", "ssn", "password", "email", "name")
 
 def get_logger() -> logging.Logger:
     """ Creates a logger object with a custom formated StreamHandler"""
-    log_obj = logging.Logger("user_data")
+    log_obj = logging.getLogger("user_data")
     log_obj.setLevel(logging.INFO)
     log_obj.propagate = False
     stream = logging.StreamHandler()
