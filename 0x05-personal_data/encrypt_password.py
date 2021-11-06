@@ -11,12 +11,13 @@ def hash_password(password: str) -> bytes:
     hashed = bcrypt.hashpw(bytes_password, bcrypt.gensalt())
     return hashed
 
+
 def is_valid(hashed_password: bytes, password: str) -> bool:
-    """ 
+    """
         Checks if the given hashed password is the same as
     a given password (used to validate passwords)
     """
-    bytes_password = bytes(password, 'utf-8') 
+    bytes_password = bytes(password, 'utf-8')
     if bcrypt.checkpw(bytes_password, hashed_password):
         return True
     else:
