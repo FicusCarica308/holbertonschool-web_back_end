@@ -19,6 +19,7 @@ def get_logger() -> logging.Logger:
     log_obj.addHandler(stream)
     return log_obj
 
+
 def filter_datum(fields: List[str], redaction: str, message: str,
                  separator: str) -> str:
     """[summary]"""
