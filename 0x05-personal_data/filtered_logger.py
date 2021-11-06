@@ -26,9 +26,13 @@ class RedactingFormatter(logging.Formatter):
         self.fields = fields
         super(RedactingFormatter, self).__init__(self.FORMAT)
 
+
     def format(self, record: logging.LogRecord) -> str:
         """[summary]"""
         Formatter = logging.Formatter(self.FORMAT)
         record = Formatter.format(record)
-        filtered = filter_datum(self.fields, self.REDACTION, str(record), self.SEPARATOR)
+        filtered = filter_datum(self.fields,
+                                self.REDACTION,
+                                str(record),
+                                self.SEPARATOR)
         return filtered.format(record)
