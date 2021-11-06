@@ -6,6 +6,18 @@ import re
 import logging
 
 
+PII_FIELDS = ("phone", "ssn", "password", "ip", "name")
+
+
+def get_logger() -> logging.Logger:
+    """ Creates a logger object with a custom formated StreamHandler"""
+    log_obj = logging.Logger("user_data", level=logging.INFO)
+    log_obj.propagate = False
+    stream = logging.StreamHandler()
+    stream.setFormatter(RedactingFormatter(list(PII_FIELDS)))
+    log_obj.addHandler(stream)
+    return log_obj
+
 def filter_datum(fields: List[str], redaction: str, message: str,
                  separator: str) -> str:
     """[summary]"""
