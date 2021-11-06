@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""[summary]
+"""
+    PII_FIELDS - This is a tuple that holds any fields
+    we want obfuscated from any actions visible to
+    outside sources
 """
 from typing import List
 import re
@@ -9,6 +12,7 @@ import mysql.connector
 
 
 PII_FIELDS = ("phone", "ssn", "password", "email", "name")
+
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """
@@ -24,6 +28,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
                                         database=env_dbName,
                                         host=env_hostName)
     return connector
+
 
 def get_logger() -> logging.Logger:
     """ Creates a logger object with a custom formated StreamHandler"""
