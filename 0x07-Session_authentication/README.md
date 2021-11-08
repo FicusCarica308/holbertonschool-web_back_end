@@ -1,5 +1,5 @@
 ![Holberton](https://www.trinityventures.com/uploads/images/portfolio/_270xAUTO_crop_center-center/Holberton-3.png)
-#0x07. Session authentication
+# 0x07. Session authentication
 
 ## Side Note:
  This project is building off of my last project called 0x06-Basic_authentication. In the last project I\
