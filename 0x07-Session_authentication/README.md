@@ -1,7 +1,12 @@
 ![Holberton](https://www.trinityventures.com/uploads/images/portfolio/_270xAUTO_crop_center-center/Holberton-3.png)
-# 0x06. Basic authentication
+#0x07. Session authentication
 
-## Learning objectives: 
+## Side Note:
+ This project is building off of my last project called 0x06-Basic_authentication. In the last project I\
+ created an api and various classes/functions that allowed to API to use basic authentication. In this\
+ project I will be making changes to the original code to allow for session authentication.
+
+## Learning objectives:
 
 * What authentication means
 * What Base64 is
