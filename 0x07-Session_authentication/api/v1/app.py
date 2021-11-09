@@ -21,12 +21,16 @@ excluded_paths = ['/api/v1/status/',
 
 auth_type = os.environ.get('AUTH_TYPE')
 
+""" Swaps between different authentication types"""
 if auth_type == 'auth':
     from api.v1.auth.auth import Auth
     auth = Auth()
 elif auth_type == 'basic_auth':
     from api.v1.auth.basic_auth import BasicAuth
     auth = BasicAuth()
+elif auth_type == 'session_auth':
+    from api.v1.auth.session_auth import SessionAuth
+    auth = SessionAuth()
 
 
 @app.before_request
