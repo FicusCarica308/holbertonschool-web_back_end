@@ -31,7 +31,13 @@ elif auth_type == 'basic_auth':
 
 @app.before_request
 def before_request_handler():
-    """[summary]
+    """
+        Handles the clients authentication before a
+        request is carried out. First checkss the authentication
+        type (returns if none is found). Second it will check if
+        the client is trying to access a forbidden path. Third
+        it will check whether or not the current user is authorized
+        to access the endpoint using passed credentials...
     """
     if auth is None:
         return
@@ -41,6 +47,7 @@ def before_request_handler():
         abort(401)
     if auth.current_user(request) is None:
         abort(403)
+    request.current_user = auth.current_user(request)
 # Authentication portion of code ================================
 
 
