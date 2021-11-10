@@ -17,7 +17,9 @@ CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 auth = None
 excluded_paths = ['/api/v1/status/',
                   '/api/v1/unauthorized/',
-                  '/api/v1/forbidden/']
+                  '/api/v1/forbidden/',
+                  '/api/v1/auth_session/login/'
+                  ]
 
 auth_type = os.environ.get('AUTH_TYPE')
 
@@ -37,7 +39,7 @@ elif auth_type == 'session_auth':
 def before_request_handler():
     """
         Handles the clients authentication before a
-        request is carried out. First checkss the authentication
+        request is carried out. First checks the authentication
         type (returns if none is found). Second it will check if
         the client is trying to access a forbidden path. Third
         it will check whether or not the current user is authorized
@@ -51,6 +53,9 @@ def before_request_handler():
         abort(401)
     if auth.current_user(request) is None:
         abort(403)
+    if auth.authorization_header(request) is None and \
+            auth.session_cookie(request) is None:
+        abort(401)
     request.current_user = auth.current_user(request)
 # Authentication portion of code ================================
 
