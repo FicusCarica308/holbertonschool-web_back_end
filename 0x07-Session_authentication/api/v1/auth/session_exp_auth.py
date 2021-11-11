@@ -46,7 +46,7 @@ class SessionExpAuth(SessionAuth):
 
         if self.session_duration <= 0:
             return session_dictionary.get('user_id')
-        if 'created_at' not in session_dictionary.keys():
+        if 'created_at' not in session_dictionary:
             return None
         time_difference = timedelta(seconds=self.session_duration) + \
             session_dictionary['created_at']
