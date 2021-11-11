@@ -43,7 +43,6 @@ class SessionExpAuth(SessionAuth):
             return None
 
         session_dictionary = self.user_id_by_session_id.get(session_id)
-        print(session_dictionary)
 
         if self.session_duration <= 0:
             return session_dictionary.get('user_id')
