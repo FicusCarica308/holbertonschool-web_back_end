@@ -7,6 +7,15 @@ from models.user import User
 from os import environ
 
 
+@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+def logout_handler():
+    """ Handles logout route """
+    from api.v1.app import auth
+    result = auth.destroy_session(request)
+    if result is False:
+        abort(404)
+    return jsonify({}), 200
+
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def login_handler():
     """ handles login route """
