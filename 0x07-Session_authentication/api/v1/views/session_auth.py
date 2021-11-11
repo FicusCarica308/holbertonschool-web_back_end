@@ -18,7 +18,7 @@ def login_handler():
         return jsonify({"error": "password missing"}), 400
     users = User.search({"email": email})
     if len(users) == 0 or users is None:
-        return jsonify({"error": "no user found for this email"})
+        return jsonify({"error": "no user found for this email"}), 404
     for user in users:
         if user.is_valid_password(password) is False:
             return jsonify({"error": "wrong password"}), 401
