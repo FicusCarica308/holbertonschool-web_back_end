@@ -52,6 +52,10 @@ class DB:
         return new_user
 
     def find_user_by(self, **kwargs) -> User:
+        """
+            Finds a User in the DB based on kwargs:
+https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filter_by
+        """
         DBSession = self._session
         query = DBSession.query(User).filter_by(**kwargs)
         return query.one()
