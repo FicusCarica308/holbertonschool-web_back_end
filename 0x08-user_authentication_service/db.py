@@ -44,6 +44,8 @@ class DB:
         Returns:
             User: Returns a User object
         """
-        new_user = User(email=email, hashed_password=hashed_password)
-        self._session.add(new_user)
+        DBSession = self._session
+        users = DBSession.query(User).all()
+        new_user = User(email=email, hashed_password=hashed_password, id=len(users) + 1)
+        DBSession.add(new_user)
         return new_user
