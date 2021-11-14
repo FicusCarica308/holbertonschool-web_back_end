@@ -5,6 +5,7 @@ from sqlalchemy import Column, Integer, String
 
 
 Base = declarative_base()
+"""https://docs.sqlalchemy.org/en/13/orm/tutorial.html#create-a-schema"""
 
 
 class User(Base):
