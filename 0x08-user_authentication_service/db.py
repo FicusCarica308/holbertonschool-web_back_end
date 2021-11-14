@@ -8,6 +8,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 from user import User, Base
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.orm.exc import NoResultFound
 
 
 class DB:
@@ -48,3 +50,8 @@ class DB:
         DBSession.add(new_user)
         DBSession.commit()
         return new_user
+
+    def find_user_by(self, **kwargs) -> User:
+        DBSession = self._session
+        query = DBSession.query(User).filter_by(**kwargs)
+        return query.one()
