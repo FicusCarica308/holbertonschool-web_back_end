@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-""" 
-    Database control class 
+"""
+    Database control class
 > Is able to create/delete users
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
+from user import User, Base
 
-from user import Base
-from user import User
 
 class DB:
     """ Database engine class (DB)"""
@@ -30,7 +29,7 @@ class DB:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
-    
+
     def add_user(self, email: str, hashed_password: str) -> User:
         """
         [Summary]
