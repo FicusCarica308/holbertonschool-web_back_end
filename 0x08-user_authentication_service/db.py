@@ -58,4 +58,7 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         """
         DBSession = self._session
         query = DBSession.query(User).filter_by(**kwargs)
-        return query.one()
+        result = query.first()
+        if (result is None):
+            raise NoResultFound
+        return result
