@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""DB module
+"""
+    Database control class
+> Is able to create/delete users
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
-
-from user import Base, User
+from user import User, Base
 
 
 class DB:
-    """DB class
-    """
+    """ Database engine class (DB)"""
 
     def __init__(self) -> None:
         """Initialize a new DB instance
@@ -43,8 +43,8 @@ class DB:
         Returns:
             User: Returns a User object
         """
+        DBSession = self._session
         new_user = User(email=email, hashed_password=hashed_password)
-        self._session
-        self.__session.add(new_user)
-        self.__session.commit()
+        DBSession.add(new_user)
+        DBSession.commit()
         return new_user
