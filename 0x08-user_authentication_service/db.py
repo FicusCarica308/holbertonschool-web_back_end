@@ -79,6 +79,5 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
             if key not in attributes:
                 raise ValueError
             setattr(user, key, value)
-        DBSession.add(user)
         DBSession.commit()
         return None
