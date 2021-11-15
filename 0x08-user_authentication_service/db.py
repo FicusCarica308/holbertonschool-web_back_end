@@ -75,7 +75,7 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         DBSession = self._session
         user = self.find_user_by(id=user_id)
         for key in kwargs.keys():
-            if hasattr(user, key) is False:
+            if hasattr(User, key) is False:
                 raise ValueError
         for key, value in kwargs.items():
             setattr(user, key, value)
