@@ -75,8 +75,9 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         DBSession = self._session
         user = self.find_user_by(id=user_id)
         for key, value in kwargs.items():
-            if hasattr(user, key) is False or key != '_sa_instance_state':
+            if hasattr(user, key) is False:
                 raise ValueError
-            setattr(user, key, value)
+            if (key != '_sa_instance_state':)
+                setattr(user, key, value)
         DBSession.commit()
         return None
