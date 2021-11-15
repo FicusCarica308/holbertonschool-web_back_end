@@ -65,7 +65,7 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
             raise NoResultFound
         return result
 
-    def update_user(self, user_id: int, **kwargs: dict) -> None:
+    def update_user(self, user_id: int, **kwargs) -> None:
         """
             Updates a user using **kwargs. Returns None.
             Will raise a NoResultFound error if user doesnt exist
