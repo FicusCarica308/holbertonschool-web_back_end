@@ -10,6 +10,7 @@ from sqlalchemy.orm.session import Session
 from user import User, Base
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
+from typing import TypeVar
 
 
 class DB:
@@ -74,9 +75,8 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         """
         DBSession = self._session
         user = self.find_user_by(id=user_id)
-        for key in kwargs.keys():
-            if hasattr(User, key) is False:
-                raise ValueError
         for key, value in kwargs.items():
+            if hasattr(user, key) is False:
+                raise ValueError
             setattr(user, key, value)
         DBSession.commit()
