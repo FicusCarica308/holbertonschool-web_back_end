@@ -80,6 +80,7 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         for key, value in kwargs.items():
             if hasattr(user, key) is False:
                 raise ValueError
+                return None
             setattr(user, key, value)
         DBSession.add(user)
         DBSession.commit()
