@@ -55,6 +55,8 @@ class DB:
         """
             Finds a User in the DB based on kwargs:
 https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filter_by
+            Returns the first row found in the users table as filtered by
+            the method’s input arguments
         """
         DBSession = self._session
         query = DBSession.query(User).filter_by(**kwargs)
@@ -62,3 +64,21 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         if (result is None):
             raise NoResultFound
         return result
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """ Updates a user using **kwargs. Returns None.
+            Will raise a NoResultFound error if user doesnt exist
+            If an attribute is passed that isnt in attributes it will
+            raise a ValueError
+        """
+        attributes = ['id', 'email', 'hashed_password',
+                      'session_id', 'reset_token']
+        DBSession = self._session
+        user = self.find_user_by(id=user_id)
+        for key, value in kwargs.items():
+            if key not in attributes:
+                raise ValueError
+            setattr(user, key, value)
+        DBSession.add(user)
+        DBSession.commit()
+        return None
