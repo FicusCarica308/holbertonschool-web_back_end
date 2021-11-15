@@ -74,7 +74,10 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         attributes = ['id', 'email', 'hashed_password',
                       'session_id', 'reset_token']
         DBSession = self._session
-        user = self.find_user_by(id=user_id)
+        try:
+            user = self.find_user_by(id=user_id)
+        except NoResultFound:
+            return None
         for key, value in kwargs.items():
             if key not in attributes:
                 raise ValueError
