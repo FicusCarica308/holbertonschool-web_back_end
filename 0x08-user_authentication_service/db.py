@@ -74,8 +74,9 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         """
         DBSession = self._session
         user = self.find_user_by(id=user_id)
+        attributes = User.__table__.columns.keys()
         for key, value in kwargs.items():
-            if hasattr(user, key) is False:
+            if key not in attributes:
                 raise ValueError
             setattr(user, key, value)
         DBSession.commit()
