@@ -66,7 +66,8 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
         return result
 
     def update_user(self, user_id: int, **kwargs) -> None:
-        """ Updates a user using **kwargs. Returns None.
+        """
+            Updates a user using **kwargs. Returns None.
             Will raise a NoResultFound error if user doesnt exist
             If an attribute is passed that isnt in attributes it will
             raise a ValueError
@@ -80,5 +81,6 @@ https://docs.sqlalchemy.org/en/13/orm/query.html#sqlalchemy.orm.query.Query.filt
             if hasattr(user, key) is False:
                 raise ValueError
             setattr(user, key, value)
+        DBSession.add(user)
         DBSession.commit()
         return None
