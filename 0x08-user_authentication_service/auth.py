@@ -24,13 +24,10 @@ class Auth:
         """
             Temp comment
         """
-        not_found = False
         try:
             self._db.find_user_by(email=email)
-        except NoResultFound :
-            not_found = True
-        if not_found is False:
             raise ValueError('User {} already exists'.format(email))
-        hashed_password = _hash_password(password)
-        new_user = self._db.add_user
+        except NoResultFound:
+            hashed_password = _hash_password(password)
+            new_user = self._db.add_user(email, hashed_password)
         return new_user
