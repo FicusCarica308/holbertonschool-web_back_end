@@ -12,6 +12,7 @@ def _hash_password(password: str) -> bytes:
     hashed_password = bcrypt.hashpw(bytes_password,  bcrypt.gensalt())
     return hashed_password
 
+
 class Auth:
     """Auth class to interact with the authentication database.
     """
@@ -19,10 +20,16 @@ class Auth:
     def __init__(self):
         """ Init """
         self._db = DB()
-        
+
     def register_user(self, email: str, password: str) -> User:
         """
-            Temp comment
+            Arugments:
+                email(str): new user Email
+                password(str): new user password
+            [Summary]
+            Creates a new User object and saves it to the database
+            using the 'db' class from 'db.py'. If a User instance
+            already exists the function does nothing.
         """
         try:
             self._db.find_user_by(email=email)
