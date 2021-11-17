@@ -58,5 +58,10 @@ class Auth:
             # runs if no user with given email is found
             return False
 
-    def create_session(email: str) -> str:
-        pass
+    def create_session(self, email: str) -> str:
+        try:
+            user = self._db.find_user_by(email=email)
+            self._db.update_user(user.id, session_id=_generate_uuid())
+            return user.session_id
+        except NoResultFound:
+            return None
