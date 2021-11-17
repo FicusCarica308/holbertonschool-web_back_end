@@ -31,7 +31,7 @@ def users():
     return jsonify({"email": email, "message": "user created"})
 
 
-@app.route('/sessions', methods=['POST'])
+@app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login():
     """ Logs in a user if it exists """
     email = request.form['email']
@@ -40,9 +40,9 @@ def login():
     if AUTH.valid_login(email, password) is False:
         abort(401)
     session_id = AUTH.create_session(email)
-    resp = make_response()
+    resp = make_response({"email": email, "message": "logged in"})
     resp.set_cookie('session_id', session_id)
-    return jsonify({"email": email, "message": "logged in"})
+    return resp
 
 
 if __name__ == "__main__":
