@@ -15,6 +15,7 @@ def _hash_password(password: str) -> bytes:
 
 
 def _generate_uuid() -> str:
+    """ returns a new random uuid """
     return str(uuid4())
 
 
