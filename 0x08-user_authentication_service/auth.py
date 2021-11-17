@@ -26,8 +26,9 @@ class Auth:
     def __init__(self):
         """ Init """
         self._db = DB()
-        
-    def get_user(self, email: str) -> User:
+
+    def get_user_by_email_by_email(self, email: str) -> User:
+        """ Gets user by email """
         try:
             user = self._db.find_user_by(email=email)
             return user
@@ -44,7 +45,7 @@ class Auth:
             using the 'db' class from 'db.py'. If a User instance
             already exists the function does nothing.
         """
-        user = self.get_user(email)
+        user = self.get_user_by_email(email)
         if user is not None:
             raise ValueError('User {} already exists'.format(email))
         hashed_password = _hash_password(password)
@@ -53,7 +54,7 @@ class Auth:
 
     def valid_login(self, email: str, password: str) -> bool:
         """ Validates a given pair of credentials """
-        user = self.get_user(email)
+        user = self.get_user_by_email(email)
         if user is None:
             return False
         result = bcrypt.checkpw(bytes(password, "utf-8"),
