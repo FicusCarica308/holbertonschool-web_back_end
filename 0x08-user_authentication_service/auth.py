@@ -26,6 +26,13 @@ class Auth:
     def __init__(self):
         """ Init """
         self._db = DB()
+        
+    def get_user(self, email: str) -> User:
+        try:
+            user = self._db.find_user_by(email=email)
+            return user
+        except NoResultFound:
+            return None
 
     def register_user(self, email: str, password: str) -> User:
         """
@@ -37,23 +44,23 @@ class Auth:
             using the 'db' class from 'db.py'. If a User instance
             already exists the function does nothing.
         """
-        try:
-            self._db.find_user_by(email=email)
+        user = self.get_user(email)
+        if user is not None:
             raise ValueError('User {} already exists'.format(email))
-        except NoResultFound:
-            hashed_password = _hash_password(password)
-            new_user = self._db.add_user(email, hashed_password)
+        hashed_password = _hash_password(password)
+        new_user = self._db.add_user(email, hashed_password)
         return new_user
 
     def valid_login(self, email: str, password: str) -> bool:
         """ Validates a given pair of credentials """
-        try:
-            user = self._db.find_user_by(email=email)
-            result = bcrypt.checkpw(bytes(password, "utf-8"),
-                                    user.hashed_password)
-            if result is False:  # returns false when password doesnt match
-                return False
-            return True
-        except NoResultFound:
-            # runs if no user with given email is found
+        user = self.get_user(email)
+        if user is None:
             return False
+        result = bcrypt.checkpw(bytes(password, "utf-8"),
+                                user.hashed_password)
+        if result is False:  # returns false when password doesnt match
+            return False
+        return True
+
+    def create_session(email: str) -> str:
+        pass
