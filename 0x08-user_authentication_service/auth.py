@@ -59,6 +59,7 @@ class Auth:
             return False
 
     def create_session(self, email: str) -> str:
+        """ Adds a session id to a User object instance if it exists """
         try:
             user = self._db.find_user_by(email=email)
             self._db.update_user(user.id, session_id=_generate_uuid())
