@@ -7,7 +7,7 @@ from auth import Auth
 # authentication
 AUTH = Auth()
 
-#Flask app
+# Flask app
 app = Flask(__name__)
 
 
@@ -15,6 +15,7 @@ app = Flask(__name__)
 def route_endpoint():
     """ Route handler """
     return jsonify({"message": "Bienvenue"})
+
 
 @app.route('/users', methods=['POST'], strict_slashes=False)
 def users():
@@ -25,7 +26,7 @@ def users():
 
     try:
         AUTH.register_user(email, password)
-    except:
+    except ValueError:
         return jsonify({"message": "email already registered"})
     return jsonify({"email": email, "message": "user created"})
 
