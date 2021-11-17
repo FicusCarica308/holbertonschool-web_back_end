@@ -30,12 +30,13 @@ def users():
         return jsonify({"message": "email already registered"})
     return jsonify({"email": email, "message": "user created"})
 
-@app.route('/sessions', methods=['POST'])
+
+@app.route('/sessions', methods=['POST'], strict_slashes=False)
 def login():
     """ Logs in a user if it exists """
     email = request.form['email']
     password = request.form['password']
-    
+
     if AUTH.valid_login(email, password) is False:
         abort(401)
     session_id = AUTH.create_session(email)
