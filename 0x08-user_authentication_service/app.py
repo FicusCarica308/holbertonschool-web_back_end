@@ -31,7 +31,7 @@ def users():
     return jsonify({"email": email, "message": "user created"})
 
 
-@app.route('/sessions', methods=['POST'], strict_slashes=False)
+@app.route('/sessions', methods=['POST'])
 def login():
     """ Logs in a user if it exists """
     email = request.form['email']
