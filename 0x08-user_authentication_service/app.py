@@ -44,6 +44,7 @@ def login():
     resp.set_cookie('session_id', session_id)
     return resp
 
+
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout():
     """ Logs out a user if it exists """
@@ -52,7 +53,8 @@ def logout():
     if user is None:
         abort(403)
     AUTH.destroy_session(user.id)
-    redirect("/")
+    return redirect("/")
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
