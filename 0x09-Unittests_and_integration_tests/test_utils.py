@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-""" """
+""" All unittests for utils.py module """
 import unittest
 from unittest.mock import patch, Mock
-from utils import access_nested_map, get_json
+from utils import access_nested_map, get_json, memoize
 from parameterized import parameterized
 
 
@@ -41,6 +41,30 @@ class TestGetJson(unittest.TestCase):
             actual_result = get_json(url)
             self.assertEqual(actual_result, payload)
             mock.json.assert_called_once()
+
+
+class TestMemoize(unittest.TestCase):
+    """Class testing utils.memoize wrapper from utils.py"""
+
+    def test_memoize(self):
+        """Tests if the wrapper memoize function
+        succesfully recreates and object"""
+
+        class TestClass:
+            """ Test class """
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                """ Test method """
+                return self.a_method()
+
+        with patch.object(TestClass, 'a_method', return_value=42) as a_method:
+            test = TestClass()
+            test.a_property
+            test.a_property
+            a_method.assert_called_once()
 
 
 if __name__ == "__main__":
