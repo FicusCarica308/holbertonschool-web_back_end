@@ -63,7 +63,8 @@ class TestMemoize(unittest.TestCase):
         with patch.object(TestClass, 'a_method', return_value=42) as a_method:
             test = TestClass()
             test.a_property
-            test.a_property
+            result = test.a_property
+            self.assertEqual(result, test.a_property)
             a_method.assert_called_once()
 
 
