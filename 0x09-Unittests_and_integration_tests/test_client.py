@@ -3,6 +3,7 @@
 import unittest
 from unittest.mock import Mock, patch
 from parameterized import parameterized
+from client import GithubOrgClient
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -10,13 +11,15 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @parameterized.expand([("google", {"payload": True}),
                            ("abc", {"payload": False})])
-    @patch('utils.get_json')
+    @patch('client.get_json')
     def test_org(self, test, test_payload, patch_res):
         """ Tests 'org' class method """
-        print(patch_res)
-        patch_res.json.return_value = test_payload
-        patch_res.json.assert_called_once()
-        print(patch_res.json)
+        # patch setup
+        patch_res.return_value = test_payload
+        
+        client = GithubOrgClient(test)
+        self.assertEqual(client.org, test_payload)
+        patch_res.assert_called_once()
 
 
 if __name__ == "__main__":
