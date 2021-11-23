@@ -16,7 +16,7 @@ class TestGithubOrgClient(unittest.TestCase):
         """ Tests 'org' class method """
         # patch setup
         patch.return_value = test_payload
-        
+
         client = GithubOrgClient(test)
         self.assertEqual(client.org, test_payload)
         patch.assert_called_once()
@@ -42,7 +42,7 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(result[0], 'test/url')
             patch_public_repos.assert_called_once()
             patch_org.assert_called_once()
-         
+
 
 if __name__ == "__main__":
     unittest.main()
