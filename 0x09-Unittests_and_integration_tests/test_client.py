@@ -74,5 +74,6 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         """ Class method for tearDown """
         cls.patcher.stop()
 
+
 if __name__ == "__main__":
     unittest.main()
