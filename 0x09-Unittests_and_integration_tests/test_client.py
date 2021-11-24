@@ -70,7 +70,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         cls.get_patcher = patch('requests.get')
         cls.patcher = cls.get_patcher.start()
         cls.patcher.return_value.json.side_effect = custom_payload
-        
+
     def test_public_repos(self):
         """ Test method """
         client = GithubOrgClient('google')
