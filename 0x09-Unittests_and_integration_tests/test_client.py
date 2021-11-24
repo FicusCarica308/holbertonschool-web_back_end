@@ -66,18 +66,9 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
                           cls.repos_payload,
                           cls.org_payload,
                           cls.repos_payload]
-        mock = Mock()
-        mock.json.return_value.side_effect = custom_payload
-        cls.get_patcher = patch('requests.get', return_value=mock)
+        cls.get_patcher = patch('requests.get')
+        cls.get_patcher.json.return_value.side_effect = custom_payload
         cls.patcher = cls.get_patcher.start()
-
-    def test_public_repos(self):
-        """ Tests public_repos class method """
-        pass
-
-    def test_public_repos_with_license(self):
-        """ Tests public_repos_with_license class method"""
-        pass
 
     @classmethod
     def tearDownClass(cls):
