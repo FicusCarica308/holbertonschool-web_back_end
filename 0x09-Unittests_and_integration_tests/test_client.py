@@ -44,8 +44,10 @@ class TestGithubOrgClient(unittest.TestCase):
             patch_public_repos.assert_called_once()
             patch_org.assert_called_once()
 
-    @parameterized.expand([({"license": {"key": "my_license"}}, "my_license", True),
-                           ({"license": {"key": "other_license"}}, "my_license", False)])
+    @parameterized.expand([({"license": {"key": "my_license"}},
+                            "my_license", True),
+                           ({"license": {"key": "other_license"}},
+                            "my_license", False)])
     def test_has_license(self, repo, license_key, expected):
         """ tests has_license class method """
         client = GithubOrgClient('abc')
