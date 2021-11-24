@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ More unittests """
 import unittest
+from unittest import mock
 from unittest.mock import Mock, patch, PropertyMock
 from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
@@ -67,8 +68,20 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
                           cls.org_payload,
                           cls.repos_payload]
         cls.get_patcher = patch('requests.get')
-        cls.get_patcher.json.return_value.side_effect = custom_payload
         cls.patcher = cls.get_patcher.start()
+        cls.patcher.return_value.json.side_effect = custom_payload
+        
+    def test_public_repos(self):
+        """ Test method """
+        client = GithubOrgClient('google')
+        result = client.public_repos()
+        self.assertEqual(result, self.expected_repos)
+
+    def test_public_repos_with_license(self):
+        """ Test method """
+        client = GithubOrgClient('google')
+        self.assertEqual(client.public_repos("apache-2.0"),
+                         self.apache2_repos)
 
     @classmethod
     def tearDownClass(cls):
