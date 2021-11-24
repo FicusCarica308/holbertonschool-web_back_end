@@ -2,8 +2,9 @@
 """ More unittests """
 import unittest
 from unittest.mock import Mock, patch, PropertyMock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -51,6 +52,25 @@ class TestGithubOrgClient(unittest.TestCase):
         result = client.has_license(repo, license_key)
         self.assertEqual(result, expected)
 
+
+@parameterized_class(("org_payload", "repos_payload", "expected_repos", "apache2_repos"), TEST_PAYLOAD)
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """ Integration tests """
+    @classmethod
+    def setUpClass(cls):
+        """ Class method for setup """
+        custom_payload = [cls.org_payload,
+                          cls.repos_payload,
+                          cls.org_payload,
+                          cls.repos_payload]
+        cls.get_patcher = patch('requests.get')
+        cls.get_patcher.json.return_value.side_effect = custom_payload
+        cls.patcher = cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        """ Class method for tearDown """
+        cls.patcher.stop()
 
 if __name__ == "__main__":
     unittest.main()
