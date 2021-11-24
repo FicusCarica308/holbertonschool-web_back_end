@@ -44,10 +44,8 @@ class TestGithubOrgClient(unittest.TestCase):
             patch_public_repos.assert_called_once()
             patch_org.assert_called_once()
 
-    @parameterized.expand([({"license": {"key": "my_license"}},
-                            "my_license", True),
-                           ({"license": {"key": "other_license"}},
-                            "my_license", False)])
+    @parameterized.expand([({"license": {"key": "my_license"}}, "my_license", True),
+                           ({"license": {"key": "other_license"}}, "my_license", False)])
     def test_has_license(self, repo, license_key, expected):
         """ tests has_license class method """
         client = GithubOrgClient('abc')
@@ -55,8 +53,7 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(result, expected)
 
 
-@parameterized_class(("org_payload", "repos_payload",
-                      "expected_repos", "apache2_repos"), TEST_PAYLOAD)
+@parameterized_class(("org_payload", "repos_payload", "expected_repos", "apache2_repos"), TEST_PAYLOAD)
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """ Integration tests """
     @classmethod
@@ -70,20 +67,10 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         cls.get_patcher.json.return_value.side_effect = custom_payload
         cls.patcher = cls.get_patcher.start()
 
-    def test_public_repos(self):
-        """ Testing for public_repos class method using google """
-        client = GithubOrgClient('google')
-        self.assertEqual(client.public_repos(), self.expected_repos)
-
-    def test_public_repos_with_license(self):
-        """ Testing for public_repos_with_liscence method using google """
-        pass
-
     @classmethod
     def tearDownClass(cls):
         """ Class method for tearDown """
         cls.patcher.stop()
-
 
 if __name__ == "__main__":
     unittest.main()
