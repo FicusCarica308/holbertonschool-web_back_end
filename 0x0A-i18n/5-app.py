@@ -35,6 +35,7 @@ def before_request_handler():
     user = get_user()
     g.user = user
 
+
 @babel.localeselector
 def get_locale():
     """ Determine the best match with our supported languages """
