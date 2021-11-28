@@ -25,6 +25,7 @@ babel = Babel(app)
 
 
 def get_user():
+    """ Gets a user based on url argument"""
     id = request.args.get('login_as')
     if (id is None):
         return None
