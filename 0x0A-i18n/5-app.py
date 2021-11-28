@@ -34,9 +34,12 @@ def before_request_handler():
 def get_user():
     """ Gets a user based on url argument"""
     id = request.args.get('login_as')
-    if (id is None):
+    if id is None:
         return None
-    return users.get(int(id))
+    try:
+        return users.get(int(id))
+    except ValueError:
+        return None
 
 
 @babel.localeselector
