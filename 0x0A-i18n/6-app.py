@@ -65,7 +65,7 @@ def get_locale():
 @app.route("/")
 def holby_welcome():
     """ Renders 0-index.html from templates directory """
-    return render_template('5-index.html')
+    return render_template('6-index.html')
 
 
 if __name__ == "__main__":
