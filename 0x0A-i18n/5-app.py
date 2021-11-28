@@ -2,7 +2,7 @@
 """ Very simple flask app using babel """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-
+from typing import Union
 
 class Config():
     """ Configuration for babel translation """
@@ -31,7 +31,7 @@ def before_request_handler():
     g.user = user
 
 
-def get_user():
+def get_user() -> Union[dict, None]:
     """ Gets a user based on url argument"""
     id = request.args.get('login_as')
     if id is None:
