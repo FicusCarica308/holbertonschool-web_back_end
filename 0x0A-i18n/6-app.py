@@ -53,10 +53,10 @@ def get_locale():
         if url_lang in app.config['LANGUAGES']:
             return url_lang
 
-    if user is not None and user.locale in app.config['LANGUAGES']:
-        return user.locale
+    if user is not None and user['locale'] in app.config['LANGUAGES']:
+        return user['locale']
 
-    if header_lang is not None:
+    if header_lang is not None and header_lang in app.config['LANGUAGES']:
         return header_lang
 
     return request.accept_languages.best_match(app.config['LANGUAGES'])
