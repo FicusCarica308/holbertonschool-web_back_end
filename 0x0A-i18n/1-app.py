@@ -10,7 +10,7 @@ class Config():
 
 app = Flask(__name__)
 app.config.from_object(Config())
-babel = Babel(app, app.config.LANGUAGES)
+babel = Babel(app, app.config['LANGUAGES'])
 
 
 @app.route("/")
