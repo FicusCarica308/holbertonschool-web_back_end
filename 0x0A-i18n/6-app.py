@@ -47,7 +47,7 @@ def get_locale():
     """ Determine the best match with our supported languages """
     lang = request.args.get('locale')
     user = get_user()
-    if user != None and user.locale in app.config['LANGUAGES']:
+    if user is not None and user.locale in app.config['LANGUAGES']:
         return user.locale
     if lang is not None:
         if lang in app.config['LANGUAGES']:
