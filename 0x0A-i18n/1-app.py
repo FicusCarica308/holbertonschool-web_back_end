@@ -10,8 +10,9 @@ class Config():
 
 app = Flask(__name__)
 app.config.from_object(Config())
-babel = Babel(app, app.config['LANGUAGES'])
-
+Babel.default_locale = "en"
+Babel.default_timezone = "UTC"
+babel = Babel(app)
 
 @app.route("/")
 def holby_welcome():
