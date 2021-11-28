@@ -24,20 +24,19 @@ Babel.default_timezone = "UTC"
 babel = Babel(app)
 
 
+@app.before_request
+def before_request_handler():
+    """ Before request """
+    user = get_user()
+    print(user)
+    g.user = user
+
 def get_user():
     """ Gets a user based on url argument"""
     id = request.args.get('login_as')
     if (id is None):
         return None
     return users.get(int(id))
-
-
-@app.before_request
-def before_request_handler():
-    """ Before request """
-    user = get_user()
-    g.user = user
-
 
 @babel.localeselector
 def get_locale():
