@@ -28,6 +28,7 @@ babel = Babel(app)
 def before_request_handler():
     """ Before request """
     user = get_user()
+    print(user)
     g.user = user
 
 
