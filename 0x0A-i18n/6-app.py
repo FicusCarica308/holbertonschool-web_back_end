@@ -49,14 +49,14 @@ def get_locale():
     user = get_user()
     header_lang = request.headers.get('locale')
 
-    if url_lang is not None and user is None:
+    if url_lang is not None:
         if url_lang in app.config['LANGUAGES']:
             return url_lang
 
     if user is not None and user.locale in app.config['LANGUAGES']:
         return user.locale
 
-    if header_lang is not None and header_lang in app.config['LANGUAGES']:
+    if header_lang is not None:
         return header_lang
 
     return request.accept_languages.best_match(app.config['LANGUAGES'])
