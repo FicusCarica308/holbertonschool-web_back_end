@@ -82,12 +82,12 @@ class Cache():
         if fn is not None:
             return fn(value)
         return value
-    
+
     def get_str(self, key: str, data: bytes) -> str:
         """  automatically parametrize Cache.get
         with the correct conversion function. """
         return self.get(key, str)
-    
+
     def get_int(self, key: str, data: bytes) -> int:
         """  automatically parametrize Cache.get with
         the correct conversion function. """
