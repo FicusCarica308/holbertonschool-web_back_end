@@ -68,7 +68,7 @@ class Cache():
         self._redis.mset({random_key: data})
         return random_key
 
-    def get(self, key: str, fn: Callable = None) -> Union[str, bytes, int, float]:
+    def get(self, key: str, fn: Callable = None):
         """
         Returns a value from a given key in the Redis cache...
         Optional argument 'fn' can be used to convert the returned
@@ -79,6 +79,6 @@ class Cache():
         Cache.get("example_key", int) -> returns 123 instead of b"123"
         """
         value = self._redis.get(key)
-        if fn is not None and value is not None:
+        if fn is not None:
             return fn(value)
         return value
