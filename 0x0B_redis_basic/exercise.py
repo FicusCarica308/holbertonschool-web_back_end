@@ -6,6 +6,34 @@ from typing import Union, Callable
 from functools import wraps
 
 
+def replay(method: Callable):
+    """ Replay function: displays the history of
+    calls of a particular function. """
+    r = redis.Redis()
+    q_name = method.__qualname__
+
+    inputs = r.lrange("{}:inputs".format(q_name), 0, -1)
+    outputs = r.lrange("{}:outputs".format(q_name), 0, -1)
+
+    print("{} was called {} times:".format(q_name, int(r.get(q_name))))
+    for input, output in zip(inputs, outputs):
+        print("%s(*%s) -> %s" % (q_name, str(input)[2:-1], str(output)[2:-1]))
+
+
+def call_history(method: Callable) -> Callable:
+    """ Stores the called functions parameters in the Redis cache """
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        """ Temp """
+        self._redis.rpush("{}:inputs".format(method.__qualname__),
+                          str(args))
+        output = method(self, *args)
+        self._redis.rpush("{}:outputs".format(method.__qualname__),
+                          str(output))
+        return output
+    return wrapper
+
+
 def count_calls(method: Callable) -> Callable:
     """ Counts the amount of times Cache is called """
     @wraps(method)
@@ -31,6 +59,7 @@ class Cache():
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @call_history
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """ Stores given data to our current redis session database """
