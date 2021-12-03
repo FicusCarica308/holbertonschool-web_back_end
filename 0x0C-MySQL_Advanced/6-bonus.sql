@@ -1,0 +1,13 @@
+-- Temp
+-- Temp
+
+DELIMITER $$
+
+CREATE PROCEDURE AddBonus (IN user_id INT, IN project_name VARCHAR(255), IN score FLOAT)
+BEGIN
+    -- IF ((SELECT count(name) FROM projects WHERE name = project_name) = 0)
+    -- THEN
+    INSERT INTO corrections (user_id, project_id, score) VALUES (user_id, (SELECT id FROM projects WHERE name = project_name), score);
+END
+$$
+DELIMITER ;
