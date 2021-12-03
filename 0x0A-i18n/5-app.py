@@ -25,7 +25,7 @@ babel = Babel(app)
 
 
 @app.before_request
-def before_request_handler():
+def before_request():
     """ Before request """
     user = get_user()
     g.user = user
