@@ -9,5 +9,5 @@ def insert_school(mongo_collection, **kwargs):
         mongo_collection (mongo): A mongoDB collection
         kwargs: The new documents and values to be added
     """
-    new_id = mongo_collection.insert(**kwargs)
+    new_id = mongo_collection.insert(kwargs)
     return new_id
