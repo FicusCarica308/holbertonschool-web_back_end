@@ -1,2 +1,2 @@
 // Task(6): a script that adds a new attribute to a document in the collection school.
-db.scool.update({name: "Holberton school"}, {$addToSet: {address: "972 Mission street"}}, {multi: true})
+db.school.update({name: "Holberton school"}, {$set: {address: "972 Mission street"}}, {multi: true})
