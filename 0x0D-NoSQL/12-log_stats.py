@@ -14,6 +14,7 @@ if __name__ == "__main__":
     print("{} logs".format(document_count))
     print("Methods:")
     for meth in method:
-        print("\tmethod {}: {}".format(meth, nginx_collection.count_documents({"method": meth})))
+        print("\tmethod {}: {}".format(meth,
+                                       nginx_collection.count_documents({"method": meth})))
     status = nginx_collection.count_documents({"path": "/status"})
     print("{} status check".format(status))
