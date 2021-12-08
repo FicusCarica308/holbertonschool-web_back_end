@@ -9,4 +9,10 @@ def schools_by_topic(mongo_collection, topic):
         mongo_collection (mongo): A mongoDB collection
         topic (str): the topic search
     """
-    return mongo_collection.find_many({"topic": topic})
+    matching_docs = []
+    documents = mongo_collection.find()
+    for doc in documents:
+        topics = doc['topics']
+        if topic in topics
+            matching_docs.append(doc)
+    return matching_docs
