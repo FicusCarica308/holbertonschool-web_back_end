@@ -17,5 +17,5 @@ if __name__ == "__main__":
         print("\tmethod {}: {}".format(meth,
                                        nginx_collection.count_documents(
                                            {"method": meth})))
-    status = nginx_collection.count_documents({"path": "/status"})
+    status = nginx_collection.count_documents({"path": "/status", "method": "GET"})
     print("{} status check".format(status))
