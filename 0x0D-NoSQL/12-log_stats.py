@@ -6,7 +6,7 @@ from pymongo import MongoClient
 
 if __name__ == "__main__":
     """ Script """
-    DB_CLIENT = MongoClient()
+    DB_CLIENT = MongoClient('localhost', 27017)
     logs_db = DB_CLIENT.logs
     nginx_collection = logs_db.nginx
     document_count = nginx_collection.count_documents({})
