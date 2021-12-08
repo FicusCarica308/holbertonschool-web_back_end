@@ -9,7 +9,7 @@ if __name__ == "__main__":
     DB_CLIENT = MongoClient()
     logs_db = DB_CLIENT.logs
     nginx_collection = logs_db.nginx
-    document_count = nginx_collection.find().count()
+    document_count = nginx_collection.count_documents()
     method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     print("{} logs".format(document_count))
     print("Methods:")
