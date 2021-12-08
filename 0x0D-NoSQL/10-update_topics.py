@@ -11,4 +11,4 @@ def update_topics(mongo_collection, name, topics):
         topics (list(str)): A list of new topis to be edited on the document
     """
     return mongo_collection.update_many({"name": name},
-                                        {"$set", {"topics": topics}})
+                                        {"$set": {"topics": topics}})
