@@ -1,31 +1,18 @@
-// Task(0): Edit these given functions
-/*export function taskFirst() {
-var task = 'I prefer const when I can.';
-return task;
+// Task(0): Edit a set of given functions
+export function taskFirst() {
+  // changed from var
+  const task = 'I prefer const when I can.';
+  return task;
 }
 
 export function getLast() {
-return ' is okay';
+  return ' is okay';
 }
 
 export function taskNext() {
-var combination = 'But sometimes let';
-combination += getLast();
+  // changed from var
+  let combination = 'But sometimes let';
+  combination += getLast();
 
-return combination;
-}*/
-export function taskFirst() {
-    const task = 'I prefer const when I can.';
-    return task;
-  }
-  
-  export function getLast() {
-    return ' is okay';
-  }
-  
-  export function taskNext() {
-    let combination = 'But sometimes let';
-    combination += getLast();
-  
-    return combination;
-  }
+  return combination;
+}
