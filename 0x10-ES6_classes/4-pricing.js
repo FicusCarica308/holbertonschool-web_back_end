@@ -16,14 +16,14 @@ export default class Pricing {
   }
 
   get currency() {
-    return this._currenct;
+    return this._currency;
   }
 
   set currency(newCurrency) {
     if (newCurrency instanceof Currency) {
       this._currency = newCurrency;
     } else {
-      throw new TypeError('Currency must be Currency object instance')
+      throw new TypeError('Currency must be Currency object instance');
     }
   }
 
