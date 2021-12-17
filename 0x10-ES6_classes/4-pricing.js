@@ -1,4 +1,5 @@
 // Task(4): Implement a class named Pricing
+import Currency from './3-currency'; // eslint-disable-line
 
 export default class Pricing {
   constructor(amount, currency) {
