@@ -1,5 +1,5 @@
 // Task(4): Implement a class named Pricing
-import Currency from './3-currency'; // eslint-disable-line
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
@@ -20,7 +20,11 @@ export default class Pricing {
   }
 
   set currency(newCurrency) {
-    this._currency = newCurrency;
+    if (newCurrency instanceof Currency) {
+      this._currency = newCurrency;
+    } else {
+      throw new TypeError('Currency must be Currency object instance')
+    }
   }
 
   displayFullPrice() {
