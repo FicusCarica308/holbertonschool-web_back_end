@@ -3,7 +3,7 @@ Task(4): a function updateStudentGradeByCity that returns an array of students
 for a specific city with their new grade
 */
 
-export default function getStudentsByLocation(students, city, newGrades) {
+export default function updateStudentGradeByCity(students, city, newGrades) {
   const callBack = (student) => {
     const updatedStudent = student;
     const gradeForId = newGrades.filter((grade) => grade.studentId === student.id);

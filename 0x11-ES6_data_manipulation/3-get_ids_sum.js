@@ -1,6 +1,6 @@
 // Task(3): a function getStudentIdsSum that returns the sum of all the student ids.
 
-export default function getStudentsByLocation(students) {
+export default function getStudentIdsSum(students) {
   /* if (students instanceof Array === false) {
     return [];
   } */
