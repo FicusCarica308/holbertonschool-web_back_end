@@ -2,7 +2,7 @@
   Task(8): a function named cleanSet that returns a string of all
   the set values that start with a specific string (startString).
 */
-export default function hasValuesFromArray(set, startString) {
+export default function cleanSet(set, startString) {
   if (startString === '') return ('');
   const editedStrings = [];
   set.forEach((value) => {
