@@ -3,6 +3,7 @@
   the set values that start with a specific string (startString).
 */
 export default function cleanSet(set, startString) {
+  if (typeof startString === 'string') return ('');
   if (startString === '') return ('');
   if (set instanceof Set === false) return ('');
   const editedStrings = [];
