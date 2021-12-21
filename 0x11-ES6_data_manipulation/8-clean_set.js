@@ -11,6 +11,5 @@ export default function cleanSet(set, startString) {
       editedStrings.push(value.slice(startString.length));
     }
   });
-  console.log('"' + editedStrings.join('-') + '"');
   return editedStrings.join('-');
 }
