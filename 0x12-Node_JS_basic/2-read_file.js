@@ -30,7 +30,7 @@ function countStudents(path) {
   console.log(`Number of students: ${overallCount}`);
   for (const key in fields) {
     if (key in fields) {
-      console.log(`Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`);
+      console.log(`Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`.trim());
     }
   }
 }
