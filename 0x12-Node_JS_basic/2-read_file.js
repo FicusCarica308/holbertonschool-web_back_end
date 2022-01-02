@@ -16,7 +16,7 @@ function countStudents(path) {
 
   for (const person of data) {
     if (person !== '') {
-      const personData = person.trim().split(',');
+      const personData = person.split(',');
       const personField = personData.slice(-1)[0];
       overallCount += 1;
       if (personField in fields) {
@@ -30,7 +30,7 @@ function countStudents(path) {
   console.log(`Number of students: ${overallCount}`);
   for (const key in fields) {
     if (key in fields) {
-      console.log(`Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`.trim());
+      console.log(`Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`);
     }
   }
 }
