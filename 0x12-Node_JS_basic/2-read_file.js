@@ -16,8 +16,7 @@ function countStudents(path) {
 
   for (const person of data) {
     if (person !== '') {
-      person.trim();
-      const personData = person.split(',');
+      const personData = person.trim().split(',');
       const personField = personData.slice(-1)[0];
       overallCount += 1;
       if (personField in fields) {
