@@ -4,18 +4,8 @@
 const fs = require('fs');
 
 function countStudents(path) {
-  const CSdata = {
-    count: 0,
-    names: [],
-  };
-
-  const SWEdata = {
-    count: 0,
-    names: [],
-  };
-
+  const fields = {};
   let overallCount = 0;
-
   let data;
 
   try {
@@ -24,22 +14,25 @@ function countStudents(path) {
     throw new Error('Cannot load the database');
   }
 
-  for (const item of data) {
-    if (item !== '') {
-      const itemData = item.split(',');
+  for (const person of data) {
+    if (person !== '') {
+      const personData = person.split(',');
+      const personField = personData.slice(-1)[0];
       overallCount += 1;
-      if (itemData.slice(-1)[0] === 'CS') {
-        CSdata.count += 1;
-        CSdata.names.push(itemData[0]);
+      if (personField in fields) {
+        fields[personField].count += 1;
+        fields[personField].names.push(personData[0]);
       } else {
-        SWEdata.count += 1;
-        SWEdata.names.push(itemData[0]);
+        fields[personField] = { count: 1, names: [personData[0]] };
       }
     }
   }
   console.log(`Number of students: ${overallCount}`);
-  console.log(`Number of students in CS: ${CSdata.count}. List: ${CSdata.names.join(', ')}`);
-  console.log(`Number of students in SWE: ${SWEdata.count}. List: ${SWEdata.names.join(', ')}`);
+  for (const key in fields) {
+    if (key in fields) {
+      console.log(`Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`);
+    }
+  }
 }
 
 module.exports = countStudents;
