@@ -4,7 +4,7 @@ const assert = require("assert");
 const calculateNumber = require("./0-calcul.js");
 
 
-describe("Round test", function() {
+describe("calculateNumber", function() {
   it("checks if a and b are rounded and added together properly", function() {
     assert.equal(calculateNumber(1, 3), 4);
   });
