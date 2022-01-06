@@ -15,7 +15,7 @@ function countStudents(path) {
   }
 
   for (const person of data) {
-    if (person !== '') {
+    if (person !== '' && data.indexOf(person) !== 0) {
       const personData = person.split(',');
       const personField = personData.slice(-1)[0];
       overallCount += 1;
