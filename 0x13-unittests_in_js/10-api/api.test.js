@@ -47,7 +47,7 @@ describe('Index page', () => {
     request.post(options, function (err, res, body) {
       expect(res.statusCode).to.equal(200);
       expect(body).to.equal('Welcome Betty');
+      done();
     });
-    done();
   });
 });
