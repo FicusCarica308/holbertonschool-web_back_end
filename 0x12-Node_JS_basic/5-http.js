@@ -1,7 +1,7 @@
 // Task (5) - a small more complex HTTP server using the http module
 
 const http = require('http');
-const countStudents = require('./3-read_file_async.js')
+const countStudents = require('./3-read_file_async');
 
 const database = process.argv.slice(2)[0];
 
@@ -16,13 +16,12 @@ const app = http.createServer((req, res) => {
   }
   if (req.url === '/students') {
     countStudents(database)
-    .then((students) => {
-        res.end('This is the list of our students\n' + `${students.join('\n')}`);
-    })
-        .catch((error) => {
-        console.log(error);
-    });
-
+      .then((students) => {
+        res.end(`This is the list of our students\n${students.join('\n')}`);
+      })
+      .catch((error) => {
+        res.end(error.message);
+      });
   }
 });
 
