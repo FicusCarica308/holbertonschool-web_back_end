@@ -15,9 +15,10 @@ const app = http.createServer((req, res) => {
     res.end('Hello Holberton School!');
   }
   if (req.url === '/students') {
+    res.write('This is the list of our students\n');
     countStudents(database)
       .then((students) => {
-        res.end(`This is the list of our students\n${students.join('\n')}`);
+        res.end(`${students.join('\n')}`);
       })
       .catch((error) => {
         res.end(error.message);
