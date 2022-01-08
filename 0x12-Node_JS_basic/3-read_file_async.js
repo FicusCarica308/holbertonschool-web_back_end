@@ -4,6 +4,8 @@
 const fs = require('fs');
 
 function countStudents(path) {
+  let response = [];
+  let storeMsg;
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, lines) => {
       if (err) {
@@ -26,13 +28,17 @@ function countStudents(path) {
           }
         }
       }
-      console.log(`Number of students: ${overallCount}`);
+      storeMsg = `Number of students: ${overallCount}`;
+      console.log(storeMsg);
+      response.push(storeMsg);
       for (const key in fields) {
         if (key in fields) {
-          console.log(`Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`);
+          storeMsg = `Number of students in ${key}: ${fields[key].count}. List: ${fields[key].names.join(', ')}`
+          console.log(storeMsg);
+          response.push(storeMsg);
         }
       }
-      resolve();
+      resolve(response);
     });
   });
 }
