@@ -1,5 +1,4 @@
 import { createQueue } from 'kue';
-import { jobs } from 'kue/lib/queue/test_mode';
 
 const blacklisted = ['4153518780', '4153518781']
 const queue = createQueue();
