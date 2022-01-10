@@ -1,7 +1,5 @@
-/* Task (2) - connects to a local redis client
-* Displays a message on connect and disconnect using node-redis client class
-* setNewSchool() -> stores a school in redis
-* displaySchoolValue() -> finds and displays a stored school (EDIT - with promisify now )
+/* Task (4) - connects to a local redis client
+* creates a hash table and prints it after creation
 */
 import { createClient, print } from 'redis';
 
