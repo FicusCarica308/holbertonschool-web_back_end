@@ -3,7 +3,7 @@
 * setNewSchool() -> stores a school in redis
 * displaySchoolValue() -> finds and displays a stored school
 */
-import { createClient } from 'redis';
+import { createClient, print } from 'redis';
 
 // (REDIS CLIENT) ===
 
@@ -23,9 +23,7 @@ client.on('error', (err) => {
 
 function setNewSchool(schoolName, value) {
   // setNewSchool() -> stores a school in redis
-  client.set(schoolName, value, (err, reply) => {
-    console.log(`Reply: ${reply}`);
-  });
+  client.set(schoolName, value, print); // print === redis.print refer to import
 }
 
 function displaySchoolValue(schoolName) {
