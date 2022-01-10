@@ -6,7 +6,7 @@ const jobTemplate = {
     message: 'This is the code to verify your account',
 }
 
-var job = queue.create('push_notification_code', jobTemplate).save((err) => {
+const job = queue.create('push_notification_code', jobTemplate).save((err) => {
   if( !err ) {
     console.log(`Notification job created: ${job.id}`);
   }
